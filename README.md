@@ -2,33 +2,46 @@
 
 # gapseq-universal-reconstruction
 
-Congratulations! You successfully set up your genome-scale metabolic model
-repository.
+* Brief description
 
-## Next Steps
+> For the construction of genome-scale metabolic network models we have built a biochemistry database, that is derived from the ModelSEED biochemistry database. In total, the resulting curated gapseq metabolism database comprises 15,150 reactions (including transporters) and 8446 metabolites. All metabolites and reactions from the biochemistry database are incorporated in the universal model that gapseq utilises for the gap-filling algorithm. If all dead-end metabolites and corresponding reactions would be removed, the universal model comprises 10,792 reactions and 3885 metabolites. However, since genome-scale metabolic networks are also used as structured knowledge-bases, no dead ends are removed from the universal model. It needs to be noted, that the current biochemistry database and the derived universal model represents mainly bacterial metabolic functions and that, at the current version of gapseq, the database does not include all archaea-specific nor eukaryotic-specific reactions. However, those reactions and, thus, also the possibility to use gapseq for the reconstruction of archaeal and eukaryotic models will be included in a later version of the software.
 
-1. Update this README to your liking and to say something about the model that
-   you are working on.
-2. Take note of the [license](LICENSE) in case you want to change it. By 
-default we have added a [CC-BY](https://creativecommons.org/licenses/by/4.0/) license to your repository.
-3. Check out the [memote documentation](http://memote.readthedocs.io/) online.
+from [gapseq: informed prediction of bacterial metabolic pathways and reconstruction of accurate metabolic models](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-021-02295-1#citeas)
+
+* Reconstruction keywords:
+**GEM Category:** Pan-species; **Utilisation:** reference knowledgebase; **Field:** metabolic-network reconstruction; **Type of Model:** curated, reconstruction; **Model Source:** [ModelSEED](https://modelseed.org/biochem/reactions); **Taxonomy:** Prokaryota; **Metabolic System:** General Metabolism; **Automated Draft Reconstruction**
+
+* Last update: 2021-07-02
+
+* The reconstruction:
+
+|Taxonomy | Template Model | Reactions | Metabolites| Genes |
+|:-------:|:--------------:|:---------:|:----------:|:-----:|
+|Prokaryota|[ModelSEED](https://modelseed.org/biochem/reactions)|1994|1650|0|
 
 ## Usage
 
-All `memote` commands have extensive help descriptions.
+The reconstruction exists both as a collection of flat files in the `/data/knowledgebase` subdirectory, and combined in YAML and SBML/XML formats. 
 
-1. For simple command line testing, check out `memote run -h`.
-2. To generate a pretty report, check out `memote report snapshot -h`.
+The colaborative workflow consists of 
+1. Reading the tables (R and Python scripts are provided in `/scripts`) - Or manipulating the tables directly
+2. Modifying the reconstruction in the tool of your choice ([Sybil](https://cran.r-project.org/web/packages/sybil/index.html), [Cobrapy](https://opencobra.github.io/cobrapy/))
+3. Saving the reconstruction as tables
+4. Saving the reconstruction as SBML
+5. `memote run`
+6. `git commit` (TODO: Implement a commit hook to autogenerate a MEMOTE test result)
 
-## Testing the Model with Continuous Integration
 
-Currently, we can enable continuous model testing using Travis CI. All you have
-to do is:
+## Requirements
 
-1. Create a [GitHub](https://github.com/) account.
-2. Create an account at https://travis-ci.org using your GitHub account.
-3. Run `memote online`.
-4. A history report will be publicly visible at https://jotech.github.io/gapseq-universal-reconstruction.
+### Python
+TODO: `pip freeze | requirements.txt`
+
+### R
+TODO: `renv::snapshot()`
+
+## Roadmap:
+
 
 ---
 

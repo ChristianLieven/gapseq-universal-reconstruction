@@ -10,4 +10,6 @@ Model Maintainer
 Contributors
 ------------
 
-None yet. Why not be the first?
+* `Silvio Waschina <s.waschina@nutrinf.uni-kiel.de>`_
+* `Christian Lieven <christian@unseenbio.com>`_
+* `Moritz E Beber <moritz@unseenbio.com>`_
